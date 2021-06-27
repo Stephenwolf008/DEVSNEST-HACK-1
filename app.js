@@ -81,3 +81,8 @@ cont.addEventListener("mousemove", function (e) {
   shipCordinate = ship.getBoundingClientRect();
   ship.style.left = `${e.clientX - 50}px`;
 });
+
+ball.addEventListener("move",()=>{
+  shipCordinate = ship.getBoundingClientRect();
+  if(ball.)
+})
