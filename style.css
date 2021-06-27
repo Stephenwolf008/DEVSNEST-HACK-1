@@ -42,14 +42,7 @@ body {
   border: solid 1px black;
   margin-top:-100px;
   left: 30%;
-  background-color: rgb(211, 211, 211);
-}
-
-.block {
-  position: absolute;
-  width: 100px;
-  height: 20px;
-  background-color: blue;
+  background-color: rgb(255, 115, 115);
 }
 
 

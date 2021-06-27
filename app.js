@@ -1,50 +1,37 @@
 const ball = document.querySelector(".ball");
 const cont = document.querySelector(".container");
 const ship = document.querySelector(".ship");
-const blocks = document.querySelector(".lion").childNodes;
+const blocks = document.querySelectorAll(".block");
 
-// const grid = document.querySelector(".grid");
+let validBlocks = [];
 
-// const blockWidth = 100;
-// const blockHeight = 20;
+console.log(blocks);
 
-// class Block {
-//   constructor(xAxis, yAxis) {
-//     this.bottomLeft = [xAxis, yAxis];
-//     this.bottomRight = [xAxis + blockWidth, yAxis];
-//     this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
-//     this.topLeft = [xAxis, yAxis + blockHeight];
-//   }
-// }
-// const blocks = [
-//   new Block(10, 270),
-//   new Block(120, 270),
-//   new Block(230, 270),
-//   new Block(340, 270),
-//   new Block(450, 270),
-//   new Block(10, 240),
-//   new Block(120, 240),
-//   new Block(230, 240),
-//   new Block(340, 240),
-//   new Block(450, 240),
-//   new Block(10, 210),
-//   new Block(120, 210),
-//   new Block(230, 210),
-//   new Block(340, 210),
-//   new Block(450, 210),
-// ];
+blocks.forEach((block,index)=>{
+  validBlocks.push({
+    "x1":block.getBoundingClientRect().x,
+    "y1":block.getBoundingClientRect().y,
+    "x2":block.offsetWidth+block.getBoundingClientRect().x,
+    "y2":block.offsetHeight+block.getBoundingClientRect().y,
+  })
 
-// const addBlocks = () => {
-//   for (let i = 0; i < 15; i++) {
-//     const block = document.createElement("div");
-//     block.style.left = blocks[i].bottomLeft[0] + "px";
-//     block.style.bottom = blocks[i].bottomLeft[1] + "px";
-//     block.classList.add("block");
-//     grid.appendChild(block);
-//   }
-// };
+})
 
-// addBlocks();
+validBlocks.forEach(block=>{
+  const el = document.createElement("div");
+  el.style.backgroundColor = "cyan";
+  el.style.zIndex = "4";
+
+  el.style.position = "absolute";
+  el.style.top = block.x1;
+  el.style.left = block.y1;
+  el.style.width = block.x2-block.x1;
+  el.style.height = block.y2-block.y1;
+
+
+})
+
+console.log(validBlocks)
 
 const Xend = window.innerWidth;
 const Yend = window.innerHeight;
@@ -69,10 +56,10 @@ function ballMove() {
   j += b;
   if (i >= Xend - 20 || i <= 20) a = -a;
   if (j <= 20) b = -b;
-  //   console.log(i);
+
   if (j >= Yend) {
     clearInterval(interval);
-    // setTimeout("location.reload(true);", 50);
+    setTimeout("location.reload(true);", 50);
   }
   if (
     shipCordinate &&
@@ -89,4 +76,3 @@ cont.addEventListener("mousemove", function (e) {
   ship.style.left = `${e.clientX - 50}px`;
 });
 
-console.log(blocks);
