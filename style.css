@@ -31,14 +31,18 @@ body {
   background-color: red;
 }
 
-.grid {
+.lion {
   position: absolute;
-  width: 560px;
-  height: 300px;
+  width: 600px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(1fr,20);
+  grid-template-rows: repeat(1fr,20);
   border: solid 1px black;
   margin: auto;
   margin-top: 100px;
   left: 30%;
+  background-color: blue;
 }
 
 .block {
@@ -46,4 +50,11 @@ body {
   width: 100px;
   height: 20px;
   background-color: blue;
+}
+
+
+#a{
+  grid-column: 1/2;
+  grid-row: 5/6;
+  background-color: aqua;
 }
