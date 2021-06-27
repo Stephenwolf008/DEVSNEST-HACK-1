@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.ship {
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  background-color: #ee3;
+  bottom: 50px;
+  left: 50px;
+}
+
+body {
+  overflow: hidden;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(223, 147, 147);
+}
+
+.ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.grid {
+  position: absolute;
+  width: 560px;
+  height: 300px;
+  border: solid 1px black;
+  margin: auto;
+  margin-top: 100px;
+  left: 30%;
+}
+
+.block {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-color: blue;
+}
