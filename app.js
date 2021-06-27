@@ -1,6 +1,7 @@
 const ball = document.querySelector(".ball");
 const cont = document.querySelector(".container");
 const ship = document.querySelector(".ship");
+const blocks = document.querySelector(".lion").childNodes;
 
 // const grid = document.querySelector(".grid");
 
@@ -55,10 +56,15 @@ let i = 30,
   a = 3,
   b = 3;
 
-const interval = setInterval(ballMove, 11);
+const interval = setInterval(ballMove, 1);
 
 function ballMove() {
   ball.style.transform = `translate(${i}px,${j}px)`;
+
+  Array.from(blocks).map((block)=>{
+    if(i<=block.offsetLeft && i>=block.offsetRight)
+      console.log(block.offsetRight)
+  })
   i += a;
   j += b;
   if (i >= Xend - 20 || i <= 20) a = -a;
@@ -66,7 +72,7 @@ function ballMove() {
   //   console.log(i);
   if (j >= Yend) {
     clearInterval(interval);
-    setTimeout("location.reload(true);", 50);
+    // setTimeout("location.reload(true);", 50);
   }
   if (
     shipCordinate &&
@@ -75,6 +81,7 @@ function ballMove() {
     shipCordinate.y <= j + 33
   )
     b = -b;
+ 
 }
 
 cont.addEventListener("mousemove", function (e) {
@@ -82,7 +89,4 @@ cont.addEventListener("mousemove", function (e) {
   ship.style.left = `${e.clientX - 50}px`;
 });
 
-ball.addEventListener("move",()=>{
-  shipCordinate = ship.getBoundingClientRect();
-  if(ball.)
-})
+console.log(blocks);
